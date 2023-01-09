@@ -555,6 +555,7 @@ if (
 		class={'notifications notification ' + message_id + ' ' + message_data['type']}
 		message_id={message_id}
 		on:click={handle_onclick}
+		on:keypress={handle_onclick}
 	>
 		{#if (
 			(typeof message_data['type'] == 'string')
