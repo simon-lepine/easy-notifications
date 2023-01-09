@@ -1,3 +1,50 @@
+easy_notifications{
+	max-width:100%;
+	clear:none;
+	position:fixed;
+	top:0rem;
+	right:1rem;
+	left:2rem;
+	z-index:999;
+}
+easy_notifications .notification{
+	width:100%;
+	margin-top:1rem;
+	max-width:55rem;
+	float:right;
+	display:block;
+	border-radius:0.25rem;
+	padding:0.75rem;
+	color:#fff;
+	background-color: #2980B9;
+	background: #2980B9;
+	font-size:85%;
+	text-align:left;
+}
+easy_notifications .notification b{
+	font-size:100%;
+}
+easy_notifications .notification.error{
+	color:#fff;
+	background-color: #cd2c0a !important;
+	background: rgb(205,44,10) !important;
+	background: linear-gradient(90deg, rgba(205,44,10,1) 50%, rgba(255,0,0,1) 100%) !important;
+}
+easy_notifications .notification.info{
+	color:#fff;
+	background-color: #2980B9 !important;
+	background: rgb(41,128,185) !important;
+	background: linear-gradient(90deg, rgba(41,128,185,1) 50%, rgba(0,81,134,1) 100%) !important;
+}
+easy_notifications .notification.success{
+	color:#fff;
+	background-color: #196f3d !important;
+	background: rgb(23,165,137) !important;
+	background: linear-gradient(90deg, rgba(23,165,137,1) 50%, rgba(25,111,61,1) 100%) !important;
+}
+
+
+
 html, body {
 	position: relative;
 	width: 100%;

@@ -1,39 +1,33 @@
-import Notifications from '_root/common/components/notifications.svelte';
 import App from './App.svelte';
 
 /**
- * init global object
- *
-if (typeof window['easy_notifications'] == 'undefined'){
-	window['easy_notifications']={
-		'attributes': {}
-	};
-}
-
-/**
- * get attributes
+ * get target attribute
  */
 let app_target='';
 if (
 	(typeof document.currentScript.attributes == 'object')
-	&&
-	(typeof document.currentScript.attributes.target == 'object')
-	&&
-	(typeof document.currentScript.attributes.target.value == 'string')
-	&&
-	(document.currentScript.attributes.target.value)
-	&&
-	(app_target = document.querySelectorAll( document.currentScript.attributes.target.value ))
-	&&
-	(typeof app_target == 'object')
-	&&
-	(app_target.length > 0)
 ){
-	app_target = app_target[0];
+
+	let new_containter = document.createElement('easy_notifications');
+
+	new_containter.id = document.querySelectorAll('#easy_notifications');
+	new_containter.id = 'easy_notifications_' + new_containter.id.length;
+
+	new_containter.classList ='easy_notifications';
+
+	let z_index = document.querySelectorAll('*').length;
+	new_containter.style = `z-index:${z_index};`;
+
+	document.currentScript.after(new_containter);
+
+	app_target = new_containter;
 }else{
 	app_target='';
 }
 
+/**
+ * attach app to target
+ */
 if (
 	(!app_target)
 	||
@@ -47,4 +41,7 @@ if (
 	});
 }
 
+/**
+ * export
+ */
 export default app;
