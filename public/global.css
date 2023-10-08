@@ -1,0 +1,110 @@
+easy_notifications{
+	max-width:100%;
+	clear:none;
+	position:fixed;
+	top:0rem;
+	right:1rem;
+	left:2rem;
+	z-index:999;
+}
+easy_notifications .notification{
+	width:100%;
+	margin-top:1rem;
+	max-width:55rem;
+	float:right;
+	display:block;
+	border-radius:0.25rem;
+	padding:0.75rem;
+	color:#fff;
+	background-color: #2980B9;
+	background: #2980B9;
+	font-size:85%;
+	text-align:left;
+}
+easy_notifications .notification b{
+	font-size:100%;
+}
+easy_notifications .notification.error{
+	color:#fff;
+	background-color: #cd2c0a;
+	background: rgb(205,44,10);
+	background: linear-gradient(90deg, rgba(205,44,10,1) 50%, rgba(255,0,0,1) 100%);
+}
+easy_notifications .notification.info{
+	color:#fff;
+	background-color: #2980B9;
+	background: rgb(41,128,185);
+	background: linear-gradient(90deg, rgba(41,128,185,1) 50%, rgba(0,81,134,1) 100%);
+}
+easy_notifications .notification.success{
+	color:#fff;
+	background-color: #196f3d;
+	background: rgb(23,165,137);
+	background: linear-gradient(90deg, rgba(23,165,137,1) 50%, rgba(25,111,61,1) 100%);
+}
+
+
+
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: #333;
+	margin: 0;
+	padding: 8px;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+a {
+	color: rgb(0,100,200);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(0,80,160);
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
+
+button {
+	color: #333;
+	background-color: #f4f4f4;
+	outline: none;
+}
+
+button:disabled {
+	color: #999;
+}
+
+button:not(:disabled):active {
+	background-color: #ddd;
+}
+
+button:focus {
+	border-color: #666;
+}
