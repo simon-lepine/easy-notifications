@@ -11,4 +11,13 @@ export default defineConfig({
     },
   },
   plugins: [svelte()],
+  build: {
+      rollupOptions: {
+          output: {
+//              dir: '~/plugin/assets/',
+              entryFileNames: 'easy_notifications.js',
+              assetFileNames: 'easy_notifications.css',
+          }
+      }
+  },
 })
