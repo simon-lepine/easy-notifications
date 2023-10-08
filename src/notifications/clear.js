@@ -1,7 +1,10 @@
 import parent from './index';
 
-const error = () => {
-    
+const clear = (message_key='') => {
+
+delete (parent.message_list[ message_key ]);
+parent.update();
+
 }
 
-export default error;
+export default clear;

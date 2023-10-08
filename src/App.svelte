@@ -521,7 +521,7 @@ if (
 	console.log(tmp + 'Easy Notifications has already been instantiated.');
 }
 if (typeof window['call_easy_notifications'] == 'undefined'){
-	window['call_easy_notifications'] = new notifications;
+	//window['call_easy_notifications'] = new notifications;
 }
 
 /**
@@ -563,11 +563,11 @@ function handle_onclick(element={}){
  */
 let store=writable({});
 if (
-	(typeof window['call_easy_notifications'] != 'undefined')
+	(typeof window['new_call_easy_notifications'] != 'undefined')
 	&&
-	(typeof window['call_easy_notifications'].store != 'undefined')
+	(typeof window['new_call_easy_notifications'].store != 'undefined')
 ){
-	store = window['call_easy_notifications'].store;
+	store = window['new_call_easy_notifications'].store;
 }
 
 </script>
@@ -578,8 +578,8 @@ if (
 		role='alert'
 		class={'notifications notification ' + message_id + ' ' + message_data['type']}
 		message_id={message_id}
-		on:click={handle_onclick}
-		on:keyup={handle_onclick}
+		on:click={window['new_call_easy_notifications'].on_click_notification}
+		on:keyup={window['new_call_easy_notifications'].on_click_notification}
 	>
 		{#if (
 			(typeof message_data['type'] == 'string')
