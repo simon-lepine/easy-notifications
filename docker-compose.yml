@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: easy-notifications
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
+
+volumes:
+  node_modules:

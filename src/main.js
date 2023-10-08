@@ -1,33 +1,45 @@
+import './app.css';
 import App from './App.svelte';
 
 /**
  * get target attribute
  */
-let app_target='';
+let app_target=false;
 if (
-	(typeof document.currentScript.attributes == 'object')
+	(typeof document.body == 'object')
 ){
+	let new_containter = document.createElement('easy_notifications_element');
 
-	let new_containter = document.createElement('easy_notifications');
-
-	new_containter.id = document.querySelectorAll('#easy_notifications');
-	new_containter.id = 'easy_notifications_' + new_containter.id.length;
-
-	new_containter.classList ='easy_notifications';
+	let new_containter_id = document.querySelectorAll('#easy_notifications_element');
+    let inc=0;
+    while (
+        (new_containter_id[0])
+        &&
+        (inc < 20)
+    ){
+        inc++;
+        new_containter_id = document.querySelectorAll('#easy_notifications_element' + inc);
+    }
+    if (!inc){
+        inc = '';
+    }
+    new_containter_id = '#easy_notifications_element' + inc;
+    new_containter.id = new_containter_id;
 
 	let z_index = document.querySelectorAll('*').length;
-	new_containter.style = `z-index:${z_index};`;
+	new_containter.style.zIndex = 'z-index:' + z_index;
+    new_containter.classList = 'easy_notifications_super_long_and_unique_class';
 
-	document.currentScript.after(new_containter);
+    document.body.appendChild(new_containter);
 
 	app_target = new_containter;
-}else{
-	app_target='';
+
 }
 
 /**
  * attach app to target
  */
+let app = {};
 if (
 	(!app_target)
 	||
@@ -36,8 +48,11 @@ if (
 	console.log('A required parameter was not provided.');
 	console.log('So Easy Notifications cannot be loaded.');
 }else{
-	const app = new App({
-		target: app_target
+	app = new App({
+		target: app_target, 
+        props : {
+            element : app_target, 
+        }
 	});
 }
 

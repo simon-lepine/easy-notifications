@@ -1,11 +1,14 @@
-<script lang='ts'>
-
+<script>
 import { derived, writable } from 'svelte/store';
+export let element;
 
 /**
  * //class for handling notifications
  */
 class notifications{
+
+element=element;
+store={};
 
 /**
  * //function to construct
@@ -51,6 +54,8 @@ if (typeof this.attributes != 'object'){
 	this.attributes={};
 }
 
+/**
+ * 
 if (
 	(typeof document.currentScript == 'object')
 	&&
@@ -79,7 +84,7 @@ for (var key in document.currentScript.attributes){
 
 /**
  * done for loop
- */
+ *
 }
 }
 
@@ -147,7 +152,7 @@ setTimeout(
 
 /**
  * //function to display initial messages
- * //usage window['easy_notifications'].display_initial() - to force display of initial messages (window['easy_notifications']['initial_messages'])
+ * //usage window['call_easy_notifications'].display_initial() - to force display of initial messages (window['call_easy_notifications']['initial_messages'])
  */
 display_initial(){
 
@@ -174,17 +179,17 @@ update(){
 /**
  * update subscribed store
  */
-if (typeof window['easy_notifications'].message_list == 'object'){
-	window['easy_notifications'].store.set({...window['easy_notifications'].message_list});
+if (typeof window['call_easy_notifications'].message_list == 'object'){
+	window['call_easy_notifications'].store.set({...window['call_easy_notifications'].message_list});
 }
 
 /**
  * stop here if we're displaying messages
  */
 if (
-	(typeof window['easy_notifications'].message_list == 'object')
+	(typeof window['call_easy_notifications'].message_list == 'object')
 	&&
-	(Object.keys(window['easy_notifications'].message_list).length)
+	(Object.keys(window['call_easy_notifications'].message_list).length)
 ){
 	return true;
 }
@@ -363,7 +368,7 @@ this.message_list[ values['message_key'] ] = values;
 if (values['timeout']){
 this.message_list[ values['message_key'] ].timeout = setTimeout(
 	function(){
-		window['easy_notifications'].clear(values['message_key'])
+		window['call_easy_notifications'].clear(values['message_key'])
 	}, 
 	values['timeout']
 );
@@ -493,12 +498,29 @@ return values;
 /*
  * init window['class'] if not already init'd
  */
+var tmp = 'Error instantiating Easy Notifications. ';
 if (
-	(typeof window['easy_notifications'] == 'undefined')
-	||
-	(typeof window['easy_notifications'].constructor != 'function')
+	(typeof window['call_easy_notifications'] != 'undefined')
+	&&
+	(typeof window['call_easy_notifications'].childNodes == 'object')
 ){
-	window['easy_notifications'] = new notifications;
+	console.log(tmp + 'An element of id window[call_easy_notifications] already exists.');
+}
+if (
+	(typeof window['call_easy_notifications'] != 'undefined')
+	&&
+	(typeof window['call_easy_notifications'].constructor == 'function')
+	&&
+	(typeof window['call_easy_notifications'] == 'object')
+	&&
+	(typeof window['call_easy_notifications'].element != 'object')
+	&&
+	(typeof window['call_easy_notifications'].element.id != 'undefined')
+){
+	console.log(tmp + 'Easy Notifications has already been instantiated.');
+}
+if (typeof window['call_easy_notifications'] == 'undefined'){
+	window['call_easy_notifications'] = new notifications;
 }
 
 /**
@@ -520,15 +542,15 @@ function handle_onclick(element={}){
 	}
 
 	if (
-		(typeof window['easy_notifications'].message_list != 'object')
+		(typeof window['call_easy_notifications'].message_list != 'object')
 		||
-		(typeof window['easy_notifications'].message_list[ element['target']['attributes']['message_id'].value ] != 'object')
+		(typeof window['call_easy_notifications'].message_list[ element['target']['attributes']['message_id'].value ] != 'object')
 	){
 		return false;
 	}
 
-	delete window['easy_notifications'].message_list[ element['target']['attributes']['message_id'].value ];
-	window['easy_notifications'].update();
+	delete window['call_easy_notifications'].message_list[ element['target']['attributes']['message_id'].value ];
+	window['call_easy_notifications'].update();
 
 /**
  * done //function
@@ -540,11 +562,11 @@ function handle_onclick(element={}){
  */
 let store=writable({});
 if (
-	(typeof window['easy_notifications'] != 'undefined')
+	(typeof window['call_easy_notifications'] != 'undefined')
 	&&
-	(typeof window['easy_notifications'].store != 'undefined')
+	(typeof window['call_easy_notifications'].store != 'undefined')
 ){
-	store = window['easy_notifications'].store;
+	store = window['call_easy_notifications'].store;
 }
 
 </script>
