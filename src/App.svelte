@@ -1,5 +1,6 @@
 <script>
 import { derived, writable } from 'svelte/store';
+import new_notifications from './notifications';
 export let element;
 
 /**
