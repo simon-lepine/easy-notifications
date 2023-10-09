@@ -31,17 +31,17 @@ default_messages = {
 
 constructor(){
     if (
-        (typeof window['new_call_easy_notifications'] != 'undefined')
+        (typeof window['call_easy_notifications'] != 'undefined')
         &&
-        (typeof window['new_call_easy_notifications'].constructor == 'function')
+        (typeof window['call_easy_notifications'].constructor == 'function')
         &&
-        (typeof window['new_call_easy_notifications'] == 'object')
+        (typeof window['call_easy_notifications'] == 'object')
         &&
-        (typeof window['new_call_easy_notifications'].element != 'object')
+        (typeof window['call_easy_notifications'].element != 'object')
         &&
-        (typeof window['new_call_easy_notifications'].element.id != 'undefined')
+        (typeof window['call_easy_notifications'].element.id != 'undefined')
     ){
-        return window['new_call_easy_notifications'];
+        return window['call_easy_notifications'];
     }
 
 	this.store = writable({});
@@ -78,26 +78,26 @@ on_click_notification=on_click_notification;
  */
 var tmp = 'Error instantiating Easy Notifications. ';
 if (
-	(typeof window['new_call_easy_notifications'] != 'undefined')
+	(typeof window['call_easy_notifications'] != 'undefined')
 	&&
-	(typeof window['new_call_easy_notifications'].childNodes == 'object')
+	(typeof window['call_easy_notifications'].childNodes == 'object')
 ){
 	console.log(tmp + 'An element of id window[call_easy_notifications] already exists.');
 }
 if (
-	(typeof window['new_call_easy_notifications'] != 'undefined')
+	(typeof window['call_easy_notifications'] != 'undefined')
 	&&
-	(typeof window['new_call_easy_notifications'].constructor == 'function')
+	(typeof window['call_easy_notifications'].constructor == 'function')
 	&&
-	(typeof window['new_call_easy_notifications'] == 'object')
+	(typeof window['call_easy_notifications'] == 'object')
 	&&
-	(typeof window['new_call_easy_notifications'].element != 'object')
+	(typeof window['call_easy_notifications'].element != 'object')
 	&&
-	(typeof window['new_call_easy_notifications'].element.id != 'undefined')
+	(typeof window['call_easy_notifications'].element.id != 'undefined')
 ){
 	console.log(tmp + 'Easy Notifications has already been instantiated.');
 }
-if (typeof window['new_call_easy_notifications'] == 'undefined'){
-	window['new_call_easy_notifications'] = new new_notifications;
+if (typeof window['call_easy_notifications'] == 'undefined'){
+	window['call_easy_notifications'] = new new_notifications;
 }
-export default window['new_call_easy_notifications'];
+export default window['call_easy_notifications'];
