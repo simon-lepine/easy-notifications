@@ -28,7 +28,7 @@ for (var key in messages['success']){
  */
 if (typeof messages['info'] == 'object'){
 for (var key in messages['info']){
-	parent.success(messages['info'][ key ]);
+	parent.info(messages['info'][ key ]);
 }
 }
 
@@ -37,7 +37,7 @@ for (var key in messages['info']){
  */
 if (typeof messages['error'] == 'object'){
 for (var key in messages['error']){
-	parent.success(messages['error'][ key ]);
+	parent.error(messages['error'][ key ]);
 }
 }
 

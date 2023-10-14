@@ -1,6 +1,7 @@
 import { derived, writable } from 'svelte/store';
 
 import set_default_then_function from './set_default_then_function';
+import display_api_messages from './display_api_messages';
 import display_initial from './display_initial';
 import load_initial from './load_initial';
 import display from './display';
@@ -58,6 +59,7 @@ constructor(){
 }
 
 display_initial=display_initial;
+display_api_messages=display_api_messages;
 load_initial=load_initial;
 display=display;
 message_key=message_key;
