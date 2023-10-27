@@ -35,7 +35,7 @@ if (
 {#each Object.entries($store) as [message_id, message_data]}
 	<span
 		role='alert'
-		class={'notifications notification ' + message_id + ' ' + message_data['type']}
+		class={'easy_notifications_super_long_and_unique_class notification ' + message_id + ' ' + message_data['type']}
 		message_id={message_id}
 		on:click={window['call_easy_notifications'].on_click_notification}
 		on:keyup={window['call_easy_notifications'].on_click_notification}
@@ -45,12 +45,12 @@ if (
 			&&
 			(message_data['type'])
 		)}
-			<b>{message_data['type'].toUpperCase()} : </b>
+			<b>{message_data['type'].toUpperCase()}:</b>
 			<br />
 		{/if}
 		
 		{message_data['message']}
-	</span>
+		</span>
 {/each}
 
 {/if}

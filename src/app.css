@@ -1,19 +1,20 @@
-.easy_notifications_super_long_and_unique_class{
-	max-width:100%;
-	clear:none;
-	position:fixed;
-	top:0rem;
-	right:1rem;
-	left:2rem;
+.easy_notifications_super_long_and_unique_class.parent{
+	width:100% !important;
+	clear:none !important;
+	position:fixed !important;
+	top:0rem !important;
+	right:0rem !important;
+	padding-right: 1rem;
 	z-index:999;
 }
 .easy_notifications_super_long_and_unique_class .notification{
-	width:100%;
-	margin-top:1rem;
-	max-width:55rem;
+	width:100% !important;
+	margin-top:1.5rem !important;
+	clear:both !important;
+	max-width:55rem !important;
 	float:right;
-	display:block;
-	border-radius:0.25rem;
+	display:block !important;
+	border-radius:0.3rem;
 	padding:0.75rem;
 	color:#fff;
 	background-color: #2980B9;

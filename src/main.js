@@ -23,12 +23,12 @@ if (
     if (!inc){
         inc = '';
     }
-    new_containter_id = '#easy_notifications_element' + inc;
+    new_containter_id = 'easy_notifications_element' + inc;
     new_containter.id = new_containter_id;
 
 	let z_index = document.querySelectorAll('*').length;
 	new_containter.style.zIndex = 'z-index:' + z_index;
-    new_containter.classList = 'easy_notifications_super_long_and_unique_class';
+    new_containter.classList = 'easy_notifications_super_long_and_unique_class parent';
 
     document.body.appendChild(new_containter);
 
