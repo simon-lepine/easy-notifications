@@ -33,6 +33,8 @@ if (
 	&&
 	(parent.next_url)
 ){
+	var tmp = parent.next_url + '';
+	parent.next_url='';
 	window.location = parent.next_url;
 }
 
